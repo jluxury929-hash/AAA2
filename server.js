@@ -11,7 +11,7 @@ const app = express();
 app.use(cors({ origin: '*' }));
 app.use(express.json());
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8080;
 const PRIVATE_KEY = process.env.TREASURY_PRIVATE_KEY;
 const TREASURY = '0x4024Fd78E2AD5532FBF3ec2B3eC83870FAe45fC7';
 
@@ -133,3 +133,4 @@ app.get('/status', async (req, res) => {
 app.get('/health', (req, res) => res.json({ status: 'healthy' }));
 
 initProvider().then(() => app.listen(PORT, '0.0.0.0', () => console.log('V2 Backend on port', PORT)));
+
